@@ -79,4 +79,20 @@ print(df.loc[9140,'Count_AnimalName'])
 print(df[df['Count_AnimalName']>800])
 print(df[(df['Count_AnimalName']>800) & (df['Count_AnimalName']<1000)])
 
+print('*'*50)
+df = pd.DataFrame(np.arange(24).reshape(4,6),index=list(string.ascii_uppercase[:4]),columns=list(string.ascii_uppercase[-6:]))
+df.loc[["A","C"],["W","Z"]] = np.nan
+print(df)
+
 #判断数据是否为NaN
+print(pd.isnull(df))
+print(pd.notnull(df))
+
+#删除NaN所在的行
+df.dropna(axis=0,how="any",inplace=False)
+
+#填充数据
+print(df.fillna(df.mean()))
+df["W"] = df.fillna(df["W"].fillna(df.mean()))
+print(df)
+
