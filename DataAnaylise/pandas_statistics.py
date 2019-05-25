@@ -46,10 +46,20 @@ import string
 #     print(zeros_genre[i].sum())
 
 #数据的合并
+#join
 t1 = pd.DataFrame(np.zeros(shape=(2,5),dtype=np.float),index=list(string.ascii_uppercase[:2]),columns=list(string.ascii_uppercase[-5:]))
 t2 = pd.DataFrame(np.ones(shape=(3,4),dtype=np.float),index=list(string.ascii_uppercase[:3]),columns=range(4))
 
 # print(t1.join(t2))
 # print(t2.join(t1))
 
-t1.merge(t2)
+#merge
+df1 = pd.DataFrame(np.ones((2,4)),index=["A","B"],columns=list("abcd"))
+df3 = pd.DataFrame(np.arange(9).reshape((3,3)),columns=list("fax"))
+print(df1)
+print(df3)
+print(df1.merge(df3,on="a"))
+
+print(df1.merge(df3,on="a",how="outer"))
+print(df1.merge(df3,on="a",how="left"))
+print(df1.merge(df3,on="a",how="right"))

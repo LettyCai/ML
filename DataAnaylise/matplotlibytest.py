@@ -3,8 +3,6 @@
 from matplotlib import pyplot as plt
 import random
 import matplotlib
-from matplotlib import font_manager
-
 font = {
     'family':'Microsoft Yahei',
     'size':'10'
